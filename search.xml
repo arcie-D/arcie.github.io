@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>test</title>
+      <link href="/2022/12/29/test/"/>
+      <url>/2022/12/29/test/</url>
+      
+        <content type="html"><![CDATA[<div align=center><img src="test-1.jpg" width = 65%><!-- ![test](test-1.jpg) --></div>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>实验页面</title>
       <link href="/2022/12/29/%E5%AE%9E%E9%AA%8C/"/>
       <url>/2022/12/29/%E5%AE%9E%E9%AA%8C/</url>
