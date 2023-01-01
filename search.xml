@@ -17,11 +17,11 @@
     
     
     <entry>
-      <title>test</title>
-      <link href="/2022/12/29/test/"/>
-      <url>/2022/12/29/test/</url>
+      <title>实验页面</title>
+      <link href="/2022/12/29/%E5%AE%9E%E9%AA%8C/"/>
+      <url>/2022/12/29/%E5%AE%9E%E9%AA%8C/</url>
       
-        <content type="html"><![CDATA[<p><img src="/url(https:/cdn.staticaly.com/gh/arcie-D/picbed/main/img/1.jpg)"><br><img src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/1.jpg"></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="实验页面"><a href="#实验页面" class="headerlink" title="实验页面"></a>实验页面</h2><p>这是测试时使用的网页页面</p><h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h3 id="3"><a href="#3" class="headerlink" title="3"></a>3</h3><h4 id="4"><a href="#4" class="headerlink" title="4"></a>4</h4><p>‘printf ;’</p><p>aside:<br>  enable: true</p><p><img src="/url(https:/cdn.staticaly.com/gh/arcie-D/picbed/main/img/44.jpg)"><br><img src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/44.jpg"></p><p><code>const name=&quot;小花猪&quot;</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">VSCode终端</span></span><br><span class="line">hexo clean; hexo s</span><br><span class="line">hexo clean; hexo g; hexo d</span><br><span class="line">git add .; git commit -m &quot;npm publish&quot;; npm version patch; </span><br><span class="line">git push</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Cmder终端</span></span><br><span class="line">hexo clean &amp;&amp; hexo s</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br><span class="line">git add . &amp;&amp; git commit -m &quot;npm publish&quot; &amp;&amp; npm version patch</span><br><span class="line">git push</span><br></pre></td></tr></table></figure><blockquote><p> Java<br>二级引用演示<br>MySQL</p><blockquote><p>外键</p><p>事务</p><p><strong>行级锁</strong>(引用内部一样可以用格式)</p></blockquote><p>….</p></blockquote><img src="/.top//img/404.jpg" alt="示例图片" style="zoom:50%;"><table><thead><tr><th>项目标号</th><th>资金</th><th>备注</th></tr></thead><tbody><tr><td>1</td><td>100，000</td><td>无</td></tr><tr><td>2</td><td>200，000</td><td>无</td></tr><tr><td>3</td><td>300,600</td><td>重要</td></tr></tbody></table><p>“””<br>adsd<br>“””</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dsads</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">dsad</span><br><span class="line">&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       
@@ -30,11 +30,11 @@
     
     
     <entry>
-      <title>实验页面</title>
-      <link href="/2022/12/29/%E5%AE%9E%E9%AA%8C/"/>
-      <url>/2022/12/29/%E5%AE%9E%E9%AA%8C/</url>
+      <title>Copyright-beautify</title>
+      <link href="/2021/03/02/test/"/>
+      <url>/2021/03/02/test/</url>
       
-        <content type="html"><![CDATA[<h2 id="实验页面"><a href="#实验页面" class="headerlink" title="实验页面"></a>实验页面</h2><p>这是测试时使用的网页页面</p><h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h3 id="3"><a href="#3" class="headerlink" title="3"></a>3</h3><h4 id="4"><a href="#4" class="headerlink" title="4"></a>4</h4><p>‘printf ;’</p><p><img src="/url(https:/cdn.staticaly.com/gh/arcie-D/picbed/main/img/44.jpg)"><br><img src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/44.jpg"></p><p><code>const name=&quot;小花猪&quot;</code></p><p>`&#96;&#96;shell</p><h1 id="VSCode终端"><a href="#VSCode终端" class="headerlink" title="VSCode终端"></a>VSCode终端</h1><p>hexo clean; hexo s<br>hexo clean; hexo g; hexo d<br>git add .; git commit -m “npm publish”; npm version patch;<br>git push</p><h1 id="Cmder终端"><a href="#Cmder终端" class="headerlink" title="Cmder终端"></a>Cmder终端</h1><p>hexo clean &amp;&amp; hexo s<br>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d<br>git add . &amp;&amp; git commit -m “npm publish” &amp;&amp; npm version patch<br>git push<br>`&#96;&#96;</p><blockquote><p> Java<br>二级引用演示<br>MySQL</p><blockquote><p>外键</p><p>事务</p><p><strong>行级锁</strong>(引用内部一样可以用格式)</p></blockquote><p>….</p></blockquote><img src="/.top//img/404.jpg" alt="示例图片" style="zoom:50%;"><table><thead><tr><th>项目标号</th><th>资金</th><th>备注</th></tr></thead><tbody><tr><td>1</td><td>100，000</td><td>无</td></tr><tr><td>2</td><td>200，000</td><td>无</td></tr><tr><td>3</td><td>300,600</td><td>重要</td></tr></tbody></table>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
       
       
