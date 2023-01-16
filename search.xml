@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>MySQL笔记整理</title>
+      <link href="/2023/01/16/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86%EF%BC%88%E4%BB%8B%E7%BB%8D%EF%BC%89/"/>
+      <url>/2023/01/16/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86%EF%BC%88%E4%BB%8B%E7%BB%8D%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h1 id="所需要学习的内容和相关介绍"><a href="#所需要学习的内容和相关介绍" class="headerlink" title="所需要学习的内容和相关介绍"></a>所需要学习的内容和相关介绍</h1><h2 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h2><p>Mysql所要学习的主要内容：事务、存储引擎、索引、sql优化、锁、日志、主从复制、读写分离、分库分表。</p><h2 id="相关介绍"><a href="#相关介绍" class="headerlink" title="相关介绍"></a>相关介绍</h2><p>数据库：存储数据的仓库，数据是有组织的进行存储（英文全称DataBase，英文简称DB）</p><p>数据库管理系统：操纵和管理数据库的大型软件（英文全称DataBase Management System，英文简称DBMS）</p><p>SQL：操作关系型数据库的编程语言，定义了一套操作关系型数据库统一标准（英文全称Structured Query Language，英文简称SQL）</p><h2 id="关系数据库（RDBMS）"><a href="#关系数据库（RDBMS）" class="headerlink" title="关系数据库（RDBMS）"></a>关系数据库（RDBMS）</h2><p>概念：建立在关系模型基础上，由于多张相互连接的二维表组成的数据库。<br>特点：</p><ol><li>使用表存储数据，格式统一，便于维护。</li><li>使用SQL语言操作，标准统一，使用方便。<br><img src="/url(https:/cdn.staticaly.com/gh/arcie-D/picbed/main/img/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86%EF%BC%88%E4%BB%8B%E7%BB%8D%EF%BC%891.jpg)"></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2023年啦</title>
       <link href="/2023/01/01/2023%E5%B9%B4%E5%95%A6/"/>
       <url>/2023/01/01/2023%E5%B9%B4%E5%95%A6/</url>
@@ -21,9 +46,21 @@
       <link href="/2022/12/29/%E5%AE%9E%E9%AA%8C/"/>
       <url>/2022/12/29/%E5%AE%9E%E9%AA%8C/</url>
       
-        <content type="html"><![CDATA[<h2 id="实验页面"><a href="#实验页面" class="headerlink" title="实验页面"></a>实验页面</h2><p>这是测试时使用的网页页面</p><h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h3 id="3"><a href="#3" class="headerlink" title="3"></a>3</h3><h4 id="4"><a href="#4" class="headerlink" title="4"></a>4</h4><p>‘printf ;’</p><p>aside:<br>  enable: true</p><p><img src="/url(https:/cdn.staticaly.com/gh/arcie-D/picbed/main/img/44.jpg)"><br><img src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/44.jpg"></p><p><code>const name=&quot;小花猪&quot;</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">VSCode终端</span></span><br><span class="line">hexo clean; hexo s</span><br><span class="line">hexo clean; hexo g; hexo d</span><br><span class="line">git add .; git commit -m &quot;npm publish&quot;; npm version patch; </span><br><span class="line">git push</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Cmder终端</span></span><br><span class="line">hexo clean &amp;&amp; hexo s</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br><span class="line">git add . &amp;&amp; git commit -m &quot;npm publish&quot; &amp;&amp; npm version patch</span><br><span class="line">git push</span><br></pre></td></tr></table></figure><blockquote><p> Java<br>二级引用演示<br>MySQL</p><blockquote><p>外键</p><p>事务</p><p><strong>行级锁</strong>(引用内部一样可以用格式)</p></blockquote><p>….</p></blockquote><img src="/.top//img/404.jpg" alt="示例图片" style="zoom:50%;"><table><thead><tr><th>项目标号</th><th>资金</th><th>备注</th></tr></thead><tbody><tr><td>1</td><td>100，000</td><td>无</td></tr><tr><td>2</td><td>200，000</td><td>无</td></tr><tr><td>3</td><td>300,600</td><td>重要</td></tr></tbody></table><p>“””<br>adsd<br>“””</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dsads</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">dsad</span><br><span class="line">&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="实验页面"><a href="#实验页面" class="headerlink" title="实验页面"></a>实验页面</h2><p>这是测试时使用的网页页面</p><h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h3 id="3"><a href="#3" class="headerlink" title="3"></a>3</h3><h4 id="4"><a href="#4" class="headerlink" title="4"></a>4</h4><p>‘printf ;’</p><p>aside:<br>  enable: true</p><p><img src="/url(https:/cdn.staticaly.com/gh/arcie-D/picbed/main/img/44.jpg)"><br><a href="https://wallhaven.cc/w/rrrj7j">https://wallhaven.cc/w/rrrj7j</a><br><img src="/url(https:/w.wallhaven.cc/full/rr/wallhaven-rrrj7j.jpg)"><br><img src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/44.jpg"></p><p><code>const name=&quot;小花猪&quot;</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">VSCode终端</span></span><br><span class="line">hexo clean; hexo s</span><br><span class="line">hexo clean; hexo g; hexo d</span><br><span class="line">git add .; git commit -m &quot;npm publish&quot;; npm version patch; </span><br><span class="line">git push</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Cmder终端</span></span><br><span class="line">hexo clean &amp;&amp; hexo s</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br><span class="line">git add . &amp;&amp; git commit -m &quot;npm publish&quot; &amp;&amp; npm version patch</span><br><span class="line">git push</span><br></pre></td></tr></table></figure><blockquote><p> Java<br>二级引用演示<br>MySQL</p><blockquote><p>外键</p><p>事务</p><p><strong>行级锁</strong>(引用内部一样可以用格式)</p></blockquote><p>….</p></blockquote><img src="/.top//img/404.jpg" alt="示例图片" style="zoom:50%;"><table><thead><tr><th>项目标号</th><th>资金</th><th>备注</th></tr></thead><tbody><tr><td>1</td><td>100，000</td><td>无</td></tr><tr><td>2</td><td>200，000</td><td>无</td></tr><tr><td>3</td><td>300,600</td><td>重要</td></tr></tbody></table><p>“””<br>adsd<br>“””</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dsads</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">dsad</span><br><span class="line">&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>]]></content>
       
       
+      <categories>
+          
+          <category> 实验页面 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 实验页面 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -37,6 +74,18 @@
         <content type="html"><![CDATA[]]></content>
       
       
+      <categories>
+          
+          <category> ttt </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> test </tag>
+            
+        </tags>
       
     </entry>
     
