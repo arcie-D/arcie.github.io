@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>MySQL笔记整理</title>
-      <link href="/2023/01/16/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86%EF%BC%88%E4%BB%8B%E7%BB%8D%EF%BC%89/"/>
-      <url>/2023/01/16/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86%EF%BC%88%E4%BB%8B%E7%BB%8D%EF%BC%89/</url>
+      <title>MySQL笔记整理(DDL部分)</title>
+      <link href="/2023/01/16/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-DDL%E9%83%A8%E5%88%86/"/>
+      <url>/2023/01/16/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-DDL%E9%83%A8%E5%88%86/</url>
       
-        <content type="html"><![CDATA[<h1 id="所需要学习的内容和相关介绍"><a href="#所需要学习的内容和相关介绍" class="headerlink" title="所需要学习的内容和相关介绍"></a>所需要学习的内容和相关介绍</h1><h2 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h2><p>Mysql所要学习的主要内容：事务、存储引擎、索引、sql优化、锁、日志、主从复制、读写分离、分库分表。</p><h2 id="相关介绍"><a href="#相关介绍" class="headerlink" title="相关介绍"></a>相关介绍</h2><p>数据库：存储数据的仓库，数据是有组织的进行存储（英文全称DataBase，英文简称DB）</p><p>数据库管理系统：操纵和管理数据库的大型软件（英文全称DataBase Management System，英文简称DBMS）</p><p>SQL：操作关系型数据库的编程语言，定义了一套操作关系型数据库统一标准（英文全称Structured Query Language，英文简称SQL）</p><h2 id="关系数据库（RDBMS）"><a href="#关系数据库（RDBMS）" class="headerlink" title="关系数据库（RDBMS）"></a>关系数据库（RDBMS）</h2><p>概念：建立在关系模型基础上，由于多张相互连接的二维表组成的数据库。<br>特点：</p><ol><li>使用表存储数据，格式统一，便于维护。</li><li>使用SQL语言操作，标准统一，使用方便。<br><img src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/MySQL1.jpg"></li></ol>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
       
       <categories>
@@ -21,6 +21,56 @@
         <tags>
             
             <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MySQL笔记整理(介绍)</title>
+      <link href="/2023/01/16/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-%E4%BB%8B%E7%BB%8D/"/>
+      <url>/2023/01/16/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-%E4%BB%8B%E7%BB%8D/</url>
+      
+        <content type="html"><![CDATA[<h1 id="所需要学习的内容和相关介绍"><a href="#所需要学习的内容和相关介绍" class="headerlink" title="所需要学习的内容和相关介绍"></a>所需要学习的内容和相关介绍</h1><h2 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h2><p>Mysql所要学习的主要内容：事务、存储引擎、索引、sql优化、锁、日志、主从复制、读写分离、分库分表。</p><h2 id="相关介绍"><a href="#相关介绍" class="headerlink" title="相关介绍"></a>相关介绍</h2><p>数据库：存储数据的仓库，数据是有组织的进行存储（英文全称DataBase，英文简称DB）</p><p>数据库管理系统：操纵和管理数据库的大型软件（英文全称DataBase Management System，英文简称DBMS）</p><p>SQL：操作关系型数据库的编程语言，定义了一套操作关系型数据库统一标准（英文全称Structured Query Language，英文简称SQL）</p><h2 id="关系数据库（RDBMS）"><a href="#关系数据库（RDBMS）" class="headerlink" title="关系数据库（RDBMS）"></a>关系数据库（RDBMS）</h2><p>概念：建立在关系模型基础上，由于多张相互连接的二维表组成的数据库。<br>特点：</p><ol><li>使用表存储数据，格式统一，便于维护。</li><li>使用SQL语言操作，标准统一，使用方便。<br><img src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/MySQL1.jpg"></li></ol><h2 id="SQL通用语法"><a href="#SQL通用语法" class="headerlink" title="SQL通用语法"></a>SQL通用语法</h2><p>1.SQL语句可以单行或多行书写，以分号结尾。<br>2.SQL语句可以使用空格或缩进来增强语句的可读性。<br>3.Mysql数据库的SQL语句不区分大小写，关键字建议使用大写。<br>4.注释：</p><p>·单行注释：–注释内容 或 #注释内容（Mysql特有）</p><p>·多行注释：&#x2F;* 注释内容 *&#x2F;</p><h2 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h2><p>DDL（Data Definition Language）：数据定义语言，用来定义数据库对象（数据库，表，字段）。<br>DML（Data Manipilation Language）：数据操作语言，用来对数据库表中的数据进行增加、删除、修改。<br>DQL（Data Query Language）：数据查询语言，用来查询数据库中标的记录。<br>DCL（Data Control Language）：数据控制语言，用来创建数据库用户、控制数据库的访问权限。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>常用Markdown语法</title>
+      <link href="/2023/01/16/%E5%B8%B8%E7%94%A8Markdown%E8%AF%AD%E6%B3%95/"/>
+      <url>/2023/01/16/%E5%B8%B8%E7%94%A8Markdown%E8%AF%AD%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br></pre></td></tr></table></figure><p>效果：</p><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h1 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 1</span><br><span class="line">- 2</span><br><span class="line">  - 2.1</span><br><span class="line">  - 2.2</span><br></pre></td></tr></table></figure><p>效果：</p><ul><li>1</li><li>2<ul><li>2.1</li><li>2.2</li></ul></li></ul><h1 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.  1</span><br><span class="line">2.  2</span><br></pre></td></tr></table></figure><p>效果：</p><ol><li>1</li><li>2</li></ol><h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 读一本好书，就是在和高尚的人谈话。 ——歌德</span><br><span class="line"></span><br><span class="line">&gt; 雇用制度对工人不利，但工人根本无力摆脱这个制度。 ——阮一峰</span><br></pre></td></tr></table></figure><p>效果：</p><blockquote><p>读一本好书，就是在和高尚的人谈话。 ——歌德</p></blockquote><blockquote><p>雇用制度对工人不利，但工人根本无力摆脱这个制度。 ——阮一峰</p></blockquote><h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">让我们通过`https://www.kucie.top/2023/01/16/常用Markdown语法/`这篇文章来学习如何编写文章把</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">让我们通过[常用Markdown语法](https://www.kucie.top/2023/01/16/常用Markdown语法/)这篇文章来学习如何编写文章把</span><br></pre></td></tr></table></figure><p>效果：<br>让我们通过<code>https://www.kucie.top/2023/01/16/常用Markdown语法/</code>这篇文章来学习如何编写文章把</p><p>让我们通过<a href="https://www.kucie.top/2023/01/16/%E5%B8%B8%E7%94%A8Markdown%E8%AF%AD%E6%B3%95/">常用Markdown语法</a>这篇文章来学习如何编写文章把</p><h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| 姓名   | 年龄 |  工作 |</span><br><span class="line">| :--: | :--: | :--: |</span><br><span class="line">| 小可爱 |  18  | 吃可爱多 |</span><br><span class="line">| 小小勇敢 |  20  | 爬棵勇敢树 |</span><br><span class="line">| 小小小机智 |  22  | 看一本机智书 |</span><br></pre></td></tr></table></figure><p>效果：</p><table><thead><tr><th align="center">姓名</th><th align="center">年龄</th><th align="center">工作</th></tr></thead><tbody><tr><td align="center">小可爱</td><td align="center">18</td><td align="center">吃可爱多</td></tr><tr><td align="center">小小勇敢</td><td align="center">20</td><td align="center">爬棵勇敢树</td></tr><tr><td align="center">小小小机智</td><td align="center">22</td><td align="center">看一本机智书</td></tr></tbody></table><h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><p><img src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/Markdown.jpg"></p><p>效果：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">代码块上下使用的是反引号可以通过按住alt键再按小键盘上的9和6后就能输出了，原理是通过键盘自带的组合键输出ascll码中的反引号。</span><br></pre></td></tr></table></figure><h1 id="字体颜色"><a href="#字体颜色" class="headerlink" title="字体颜色"></a>字体颜色</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;font color=#FF0000 &gt;红色&lt;/font&gt;</span><br><span class="line">&lt;font color=#32CD32 &gt;灰绿色&lt;/font&gt;</span><br><span class="line">&lt;font color=#00FFFF &gt;蓝绿色&lt;/font&gt;</span><br></pre></td></tr></table></figure><p>效果：<br><font color="#FF0000">红色</font><br><font color="#32CD32">灰绿色</font><br><font color="#00FFFF">蓝绿色</font></p><p><font color="#FF0000">说明：以上所有使用方法将放在代码框内演示方便理解(除代码块外)</font></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 常用Markdown语法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 常用Markdown语法 </tag>
             
         </tags>
       
@@ -59,31 +109,6 @@
         <tags>
             
             <tag> 实验页面 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Copyright-beautify</title>
-      <link href="/2021/03/02/test/"/>
-      <url>/2021/03/02/test/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> ttt </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> test </tag>
             
         </tags>
       
