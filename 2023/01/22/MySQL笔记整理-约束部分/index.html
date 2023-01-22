@@ -1,0 +1,335 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>MySQL笔记整理(约束部分) | arcie的小破站</title><meta name="author" content="arcie"><meta name="copyright" content="arcie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="约束-介绍 概念：约束是作用于表中字段上的规则，用于限制存储在表中的数据。 目的：保证数据库中数据的正确、有效性和完整性。 分类：     约束 描述 关键字    非空约束 限制改字段的数据不能为null NOT NULL   唯一约束 保证该字段的所有数据都是唯一、不重复的 UNIQUE   主键约束 主键是一行数据的唯一标识，要求非空且唯一 PRIMARY KEY   默认约束 保存数据时，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL笔记整理(约束部分)">
+<meta property="og:url" content="http://kucie.top/2023/01/22/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-%E7%BA%A6%E6%9D%9F%E9%83%A8%E5%88%86/index.html">
+<meta property="og:site_name" content="arcie的小破站">
+<meta property="og:description" content="约束-介绍 概念：约束是作用于表中字段上的规则，用于限制存储在表中的数据。 目的：保证数据库中数据的正确、有效性和完整性。 分类：     约束 描述 关键字    非空约束 限制改字段的数据不能为null NOT NULL   唯一约束 保证该字段的所有数据都是唯一、不重复的 UNIQUE   主键约束 主键是一行数据的唯一标识，要求非空且唯一 PRIMARY KEY   默认约束 保存数据时，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/91.jpg">
+<meta property="article:published_time" content="2023-01-22T11:00:00.000Z">
+<meta property="article:modified_time" content="2023-01-22T11:59:28.228Z">
+<meta property="article:author" content="arcie">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/91.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://kucie.top/2023/01/22/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-%E7%BA%A6%E6%9D%9F%E9%83%A8%E5%88%86/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'MySQL笔记整理(约束部分)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-01-22 19:59:28'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img0.baidu.com/it/u=2685051271,176347936&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=475&amp;h=500" onerror="onerror=null;src='null'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/91.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">arcie的小破站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">MySQL笔记整理(约束部分)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-01-22T11:00:00.000Z" title="发表于 2023-01-22 19:00:00">2023-01-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-01-22T11:59:28.228Z" title="更新于 2023-01-22 19:59:28">2023-01-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/MySQL/">MySQL</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">760</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MySQL笔记整理(约束部分)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="约束-介绍"><a href="#约束-介绍" class="headerlink" title="约束-介绍"></a>约束-介绍</h1><ol>
+<li>概念：约束是作用于表中字段上的规则，用于限制存储在表中的数据。</li>
+<li>目的：保证数据库中数据的正确、有效性和完整性。</li>
+<li>分类：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">约束</th>
+<th align="center">描述</th>
+<th align="center">关键字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">非空约束</td>
+<td align="center">限制改字段的数据不能为null</td>
+<td align="center">NOT NULL</td>
+</tr>
+<tr>
+<td align="center">唯一约束</td>
+<td align="center">保证该字段的所有数据都是唯一、不重复的</td>
+<td align="center">UNIQUE</td>
+</tr>
+<tr>
+<td align="center">主键约束</td>
+<td align="center">主键是一行数据的唯一标识，要求非空且唯一</td>
+<td align="center">PRIMARY KEY</td>
+</tr>
+<tr>
+<td align="center">默认约束</td>
+<td align="center">保存数据时，如果未指定该字段的值，则采用默认值</td>
+<td align="center">DEFAULT</td>
+</tr>
+<tr>
+<td align="center">检查约束</td>
+<td align="center">保证字段值满足一个条件</td>
+<td align="center">CHECK</td>
+</tr>
+<tr>
+<td align="center">外键约束</td>
+<td align="center">用来让两张表的数据之间建立连接，保证数据的一致性和完整性</td>
+<td align="center">FOREIGN KEY</td>
+</tr>
+</tbody></table>
+<font color="#FF0000">
+注意：约束是作用于表中字段上的，可以在创建/修改表的时候添加约束。
+</font>
+
+<h1 id="约束-外键约束"><a href="#约束-外键约束" class="headerlink" title="约束-外键约束"></a>约束-外键约束</h1><p>概念：外键用来让两张表的数据之间建立连接，从而保证数据的一致性和完整性。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/MySQL9.jpg"><br><font color="#FF0000"><br>注意：目前上述的两张表，在数据库层面，并未建立外键关联，所以是无法保证数据的一致性和完整性的。<br></font></p>
+<h1 id="约束-外键约束语法"><a href="#约束-外键约束语法" class="headerlink" title="约束-外键约束语法"></a>约束-外键约束语法</h1><h2 id="添加外键"><a href="#添加外键" class="headerlink" title="添加外键"></a>添加外键</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE 表名(</span><br><span class="line">    字段名 数据类型</span><br><span class="line">    ...</span><br><span class="line">    [CONSTRAINT] [外键名称] FORREIGN KEY（外键字段名）REFERENCES 	主表（主表列名）</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 ADD CONSTRAINT 外键名称 FOREIGN KEY（外键字段名） 	REFERENCES 主表（主表列名）;</span><br></pre></td></tr></table></figure>
+<h2 id="删除外键"><a href="#删除外键" class="headerlink" title="删除外键"></a>删除外键</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 DROP FOREIGN KEY 外键名称;</span><br></pre></td></tr></table></figure>
+
+<h1 id="约束-外键约束删除-x2F-更新"><a href="#约束-外键约束删除-x2F-更新" class="headerlink" title="约束-外键约束删除&#x2F;更新"></a>约束-外键约束删除&#x2F;更新</h1><table>
+<thead>
+<tr>
+<th align="center">行为</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">NO ACTION</td>
+<td align="center">当在父表中删除&#x2F;更新对应记录是，首先检查该记录是否有对应外键，如果有则不允许删除&#x2F;更新。（与RESTRICL一致）</td>
+</tr>
+<tr>
+<td align="center">RESTRICT</td>
+<td align="center">当在父表中删除&#x2F;更新对应记录是，首先检查该记录是否有对应外键，如果有则不允许删除&#x2F;更新。（与NO ACTION 一致）</td>
+</tr>
+<tr>
+<td align="center">CASCADE</td>
+<td align="center">当在父表中删除对应记录时，首先检查该记录是否有对应外键，如果有，则也删除&#x2F;更新外键在字表中的记录。</td>
+</tr>
+<tr>
+<td align="center">SET NULL</td>
+<td align="center">当在父表中删除对应记录时，首先检查该记录是否有对应外键，如果有则设置子表中该外键值为null（这就要求该外键允许取null）</td>
+</tr>
+<tr>
+<td align="center">SET DEFAULT</td>
+<td align="center">父表有变更时，子表将外键列设置成一个默认的值（Innodb不支持）</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 ADD CONSTRAINT 外键名称 FOREIGN KEY (外键字段) REFERENCES 主表名（主表字段名） ON UPDATE 行为 ON DELETE 行为;</span><br></pre></td></tr></table></figure>
+<h1 id="约束-总结"><a href="#约束-总结" class="headerlink" title="约束-总结"></a>约束-总结</h1><ol>
+<li>非空约束：<blockquote>
+<p>NOT NULL</p>
+</blockquote>
+</li>
+<li>唯一约束：<blockquote>
+<p>UNIQUE</p>
+</blockquote>
+</li>
+<li>主键约束：<blockquote>
+<p>PRIMARY KEY（自增：AUTO_INCREMENT）</p>
+</blockquote>
+</li>
+<li>默认约束：<blockquote>
+<p>DEFAULT</p>
+</blockquote>
+</li>
+<li>检查约束：<blockquote>
+<p>CHECK</p>
+</blockquote>
+</li>
+<li>外键约束：<blockquote>
+<p>FOREIGN KEY</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h1><p>约束作为一种表与表之间的限制在多表关联的时候是非常重要的，同时在只有一张表的时候约束一般是作为插入表内容的前提条件。</p>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>MySQL笔记整理(约束部分)</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="http://kucie.top/2023/01/22/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-%E7%BA%A6%E6%9D%9F%E9%83%A8%E5%88%86/">http://kucie.top/2023/01/22/MySQL笔记整理-约束部分/</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>arcie</h></div></div><div class="post-copyright-c"><h>发布于</h><div class="post-copyright-cc-info"><h>2023-01-22</h></div></div><div class="post-copyright-u"><h>更新于</h><div class="post-copyright-cc-info"><h>2023-01-22</h></div></div><div class="post-copyright-c"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/MySQL/">MySQL</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/91.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/01/22/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E9%83%A8%E5%88%86/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/26.jpg" onerror="onerror=null;src='/null'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">MySQL笔记整理(多表查询部分)</div></div></a></div><div class="next-post pull-right"><a href="/2023/01/22/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-%E5%87%BD%E6%95%B0%E9%83%A8%E5%88%86/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/79.jpg" onerror="onerror=null;src='/null'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">MySQL笔记整理(函数部分)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/01/22/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-DCL%E9%83%A8%E5%88%86/" title="MySQL笔记整理(DCL部分)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/83.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-22</div><div class="title">MySQL笔记整理(DCL部分)</div></div></a></div><div><a href="/2023/01/16/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-DDL%E9%83%A8%E5%88%86/" title="MySQL笔记整理(DDL部分)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/76.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-16</div><div class="title">MySQL笔记整理(DDL部分)</div></div></a></div><div><a href="/2023/01/21/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-DML%E9%83%A8%E5%88%86/" title="MySQL笔记整理(DML部分)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/88.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-21</div><div class="title">MySQL笔记整理(DML部分)</div></div></a></div><div><a href="/2023/01/22/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-DQL%E9%83%A8%E5%88%86/" title="MySQL笔记整理(DQL部分)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/82.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-22</div><div class="title">MySQL笔记整理(DQL部分)</div></div></a></div><div><a href="/2023/01/16/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-%E4%BB%8B%E7%BB%8D/" title="MySQL笔记整理(介绍)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/68.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-16</div><div class="title">MySQL笔记整理(介绍)</div></div></a></div><div><a href="/2023/01/22/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-%E5%87%BD%E6%95%B0%E9%83%A8%E5%88%86/" title="MySQL笔记整理(函数部分)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/79.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-22</div><div class="title">MySQL笔记整理(函数部分)</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img0.baidu.com/it/u=2685051271,176347936&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=475&amp;h=500" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="author-info__name">arcie</div><div class="author-info__description">小破站</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/arcie-D"><i class="fab fa-github"></i><span>🛴前往小家...</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/arice-D" target="_blank" title="url('https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/3.jpg')"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2124583991@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%A6%E6%9D%9F-%E4%BB%8B%E7%BB%8D"><span class="toc-text">约束-介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%A6%E6%9D%9F-%E5%A4%96%E9%94%AE%E7%BA%A6%E6%9D%9F"><span class="toc-text">约束-外键约束</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%A6%E6%9D%9F-%E5%A4%96%E9%94%AE%E7%BA%A6%E6%9D%9F%E8%AF%AD%E6%B3%95"><span class="toc-text">约束-外键约束语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%A4%96%E9%94%AE"><span class="toc-text">添加外键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%A4%96%E9%94%AE"><span class="toc-text">删除外键</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%A6%E6%9D%9F-%E5%A4%96%E9%94%AE%E7%BA%A6%E6%9D%9F%E5%88%A0%E9%99%A4-x2F-%E6%9B%B4%E6%96%B0"><span class="toc-text">约束-外键约束删除&#x2F;更新</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%A6%E6%9D%9F-%E6%80%BB%E7%BB%93"><span class="toc-text">约束-总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%83%E5%BE%97"><span class="toc-text">心得</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/1.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By arcie</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'http://192.168.1.2:8080',
+      region: 'ap-wenzhou',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'http://192.168.1.2:8080',
+      region: 'ap-wenzhou',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="30" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 380px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 320px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/69.jpg);"> <a class="categoryBar-list-link" href="categories/MySQL/">MySQL</a><span class="categoryBar-list-count">8</span><span class="categoryBar-list-descr">MySQL笔记整理</span></li><li class="categoryBar-list-item" style="background:url(https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/42.jpg);"> <a class="categoryBar-list-link" href="categories/实验页面/">实验页面</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">实验页面</span></li><li class="categoryBar-list-item" style="background:url(https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/8.jpg);"> <a class="categoryBar-list-link" href="categories/常用Markdown语法/">常用Markdown语法</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">常用Markdown语法</span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>
