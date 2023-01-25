@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>MySQL笔记整理(事务部分)</title>
+      <link href="/2023/01/24/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-%E4%BA%8B%E5%8A%A1%E9%83%A8%E5%88%86/"/>
+      <url>/2023/01/24/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-%E4%BA%8B%E5%8A%A1%E9%83%A8%E5%88%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="事务-概述"><a href="#事务-概述" class="headerlink" title="事务-概述"></a>事务-概述</h1><p>事务是一组操作的集合，它是一个不可分割的工作单位，事务会把所有的操作作为一个整体一起想系统提交或撤销操作请求，即这些操作要么同时成功，要么同时失败。</p><p><img src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/MySQL17.jpg"></p><p>MySQL的事务默认是自动提交的，也就是说，当执行一条DML语句，MySQL会立即隐式的提交事务。</p><h1 id="事务-事务操作"><a href="#事务-事务操作" class="headerlink" title="事务-事务操作"></a>事务-事务操作</h1><h2 id="查看-x2F-设置事务提交方式"><a href="#查看-x2F-设置事务提交方式" class="headerlink" title="查看&#x2F;设置事务提交方式"></a>查看&#x2F;设置事务提交方式</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT @@autocommit;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET @@autocommit = 0;//设置事务提交模式为手动提交</span><br></pre></td></tr></table></figure><h2 id="开启事务"><a href="#开启事务" class="headerlink" title="开启事务"></a>开启事务</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">START TRANSACTION 或 BEGIN;</span><br></pre></td></tr></table></figure><h2 id="提交事务"><a href="#提交事务" class="headerlink" title="提交事务"></a>提交事务</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COMMIT;</span><br></pre></td></tr></table></figure><h2 id="回滚事务"><a href="#回滚事务" class="headerlink" title="回滚事务"></a>回滚事务</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ROLLBACK;</span><br></pre></td></tr></table></figure><h1 id="事务-四大特性ACID"><a href="#事务-四大特性ACID" class="headerlink" title="事务-四大特性ACID"></a>事务-四大特性ACID</h1><ul><li>原子性（Atomicity）：事务是不可分割的最小操作单元，要么全部成功，要么全部失败。</li><li>一致性（Consistency）：事务完成时，必须使所有的数据都保持一致状态。</li><li>隔离性（Isolation）：数据库系统提供的隔离机制，保证事务在不受外部并发操作影响的独立环境下运行。</li><li>持久性（Durability）：事务一旦提交或回滚，它对数据库的改变就是永久的。</li></ul><h1 id="事务-并发事务问题"><a href="#事务-并发事务问题" class="headerlink" title="事务-并发事务问题"></a>事务-并发事务问题</h1><table><thead><tr><th align="center">问题</th><th align="center">描述</th></tr></thead><tbody><tr><td align="center">脏读</td><td align="center">一个事务到另外一个事务还没有提交的数据</td></tr><tr><td align="center">不可重复读</td><td align="center">一个事务先后读取同一条记录，但两次读取的数据不同，称之为不可重读</td></tr><tr><td align="center">幻读</td><td align="center">一个事务按照条件查询数据时，没有对应的数据行，但是在插入数据时，又发现这行数据已经存在，好像出现了“幻影”</td></tr></tbody></table><h2 id="脏读"><a href="#脏读" class="headerlink" title="脏读"></a>脏读</h2><p><img src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/MySQL18.jpg"></p><h2 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h2><p><img src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/MySQL19.jpg"></p><h2 id="幻读"><a href="#幻读" class="headerlink" title="幻读"></a>幻读</h2><p><img src="https://cdn.staticaly.com/gh/arcie-D/picbed/main/img/MySQL20.jpg"></p><h1 id="事务-事务隔离级别"><a href="#事务-事务隔离级别" class="headerlink" title="事务-事务隔离级别"></a>事务-事务隔离级别</h1><table><thead><tr><th align="center">隔离级别</th><th align="center">脏读</th><th align="center">不可重复读</th><th align="center">幻读</th></tr></thead><tbody><tr><td align="center">Read uncommitted</td><td align="center">√</td><td align="center">√</td><td align="center">√</td></tr><tr><td align="center">Read committed</td><td align="center">×</td><td align="center">√</td><td align="center">√</td></tr><tr><td align="center">Repeatable Read(默认)</td><td align="center">×</td><td align="center">×</td><td align="center">√</td></tr><tr><td align="center">Serializable</td><td align="center">×</td><td align="center">×</td><td align="center">×</td></tr></tbody></table><p>注意：Read uncommitted的性能是最好的但是它的数据安全性是最差的，Serializable的性能是最差的但是它的数据安全性是最好的，所以在选择安全级别时一定要权衡利弊的去选择。</p><h2 id="查看事务隔离级别"><a href="#查看事务隔离级别" class="headerlink" title="查看事务隔离级别"></a>查看事务隔离级别</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT @@TRANSACTION_ISOLATION;</span><br></pre></td></tr></table></figure><h2 id="设置事务隔离级别"><a href="#设置事务隔离级别" class="headerlink" title="设置事务隔离级别"></a>设置事务隔离级别</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET [ SESSION | GLOBAL ] TRANSACTION ISOLATION LEVEL &#123; READ UNCOMMITTED | READ COMMITTED | REPEATABLE READ | SERIALIZABLE &#125;</span><br></pre></td></tr></table></figure><h1 id="事务-总结"><a href="#事务-总结" class="headerlink" title="事务-总结"></a>事务-总结</h1><ol><li>事务简介<blockquote><p>事务是一组操作的集合，这组操作，要么全部执行成功，要么全部执行失败。</p></blockquote></li><li>事务操作<blockquote><p>START TRANSISACTION ; – 开启事务<br>COMMIT &#x2F; ROLLBACK ; – 提交&#x2F;回滚事务</p></blockquote></li><li>事务四大特性<blockquote><p>原子性(Atomicity)、一致性(Consistency)、隔离性(Isolation)、持久性(Durability)</p></blockquote></li><li>并发事务问题<blockquote><p>脏读、不可重复读、幻读</p></blockquote></li><li>事务隔离级别<blockquote><p>Read uncommitted、Read committed、Repeatable Read、Serializable</p></blockquote></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MySQL笔记整理(多表查询部分)</title>
       <link href="/2023/01/22/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E9%83%A8%E5%88%86/"/>
       <url>/2023/01/22/MySQL%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%E9%83%A8%E5%88%86/</url>
